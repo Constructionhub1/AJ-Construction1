@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AJ Construction — Construction excellence, one project at a time.</title>
+  <meta name="description" content="AJ Construction — 20 years of experience. Tiles, precon walls & rooms, palisades, gates, weaving, gate motors, garage doors, paint, Nutec homes, plastering, bricklaying, roof seal. Serving within 300km of Welkom, Free State." />
+  <style>
+    :root {
+      --primary: #054285; /* brand blue */
+      --text: #0f172a;    /* deep slate */
+      --muted: #64748b;   /* slate */
+      --bg: #ffffff;      /* white */
+      --surface: #f8fafc; /* light */
+      --ring: rgba(5, 66, 133, 0.25);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .nav {
+      max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; flex-direction: column; }
+    .brand .name { font-weight: 800; letter-spacing: 0.2px; color: var(--primary); font-size: 1.25rem; }
+    .brand .tag { color: var(--muted); font-size: 0.9rem; }
+    .links a {
+      color: var(--text); text-decoration: none; font-weight: 600; margin-left: 16px; padding: 8px 10px; border-radius: 10px;
+    }
+    .links a:hover { background: #eef2ff; color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(1200px 400px at 50% -10%, rgba(5,66,133,0.12), transparent), var(--bg);
+      padding: 56px 20px 36px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .hero .wrap { display: grid; grid-template-columns: 1.1fr; gap: 20px; align-items: center; }
+    .hero h1 { font-size: clamp(28px, 4vw, 46px); margin: 0; color: var(--text); }
+    .hero p { color: var(--muted); font-size: 1.05rem; margin: 10px 0 22px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      appearance: none; border: 0; cursor: pointer; font-weight: 700; letter-spacing: .2px;
+      padding: 12px 16px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn.primary { background: var(--primary); color: white; box-shadow: 0 8px 24px rgba(5,66,133,.22); }
+    .btn.primary:hover { filter: brightness(1.05); }
+    .btn.ghost { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+
+    /* Sections */
+    section { padding: 48px 20px; }
+    section .section-title { font-size: clamp(22px, 3vw, 32px); margin: 0 0 14px; }
+    section .section-sub { color: var(--muted); margin-top: 0; margin-bottom: 28px; }
+    .card {
+      background: var(--bg); border: 1px solid #e2e8f0; border-radius: var(--radius);
+      padding: 18px; box-shadow: 0 6px 18px rgba(2,6,23,0.05);
+    }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-pill { display: inline-block; background: #eef2ff; color: var(--primary); padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 0.85rem; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .service { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; border: 1px dashed #cbd5e1; background: #ffffff; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); flex: none; }
+
+    /* Contact */
+    .contact-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; }
+    .info-list { list-style: none; padding: 0; margin: 0; }
+    .info-list li { margin-bottom: 10px; }
+    .info-list a { color: var(--primary); text-decoration: none; font-weight: 700; }
+    .info-list a:hover { text-decoration: underline; }
+
+    form { background: var(--bg); padding: 18px; border: 1px solid #e2e8f0; border-radius: var(--radius); box-shadow: 0 6px 18px rgba(2,6,23,0.05); }
+    label { display: block; font-weight: 700; margin: 10px 0 6px; }
+    input, textarea, select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; font: inherit; }
+    input:focus, textarea:focus, select:focus { outline: 3px solid var(--ring); border-color: var(--primary); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .small { color: var(--muted); font-size: 0.9rem; }
+
+    /* Footer */
+    footer { background: var(--bg); border-top: 1px solid #e2e8f0; padding: 22px 20px; color: var(--muted); }
+    footer .fwrap { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid, .services-grid, .contact-layout, .row { grid-template-columns: 1fr; }
+      .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <span class="name">AJ Construction</span>
+        <span class="tag">Construction excellence, one project at a time.</span>
+      </div>
+      <div class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="wrap">
+        <div>
+          <h1>Quality building, reliable service — backed by <span style="color:var(--primary);">20 years</span> of experience.</h1>
+          <p>Serving homeowners and businesses within a <strong>300km radius of Welkom, Free State</strong>. From tiles and palisades to Nutec homes and roof seal — we handle it all with pride.</p>
+          <div class="cta">
+            <a class="btn primary" href="tel:+27810887862">Call: 081 088 7862</a>
+            <a class="btn ghost" href="#contact">Get a free quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About AJ</h2>
+      <p class="section-sub">Trusted local contractor with two decades of hands‑on experience.</p>
+      <div class="about-grid">
+        <div class="card">
+          <span class="about-pill">20+ Years Experience</span>
+          <p style="margin-top:10px;">Hi, I'm <strong>AJ</strong>. For the past <strong>20 years</strong> I've delivered solid workmanship across the Free State. My focus is simple: deliver neat, durable work, communicate clearly, and finish on time.</p>
+          <p>Based in <strong>Welkom</strong>, I take on projects within a <strong>300km radius</strong>. No job is too small — if it matters to you, it matters to me.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">Why choose us</h3>
+          <ul>
+            <li>Reliable timelines & clear communication</li>
+            <li>Neat finishes and strong materials</li>
+            <li>Local, hands-on service</li>
+          </ul>
+          <div style="margin-top:10px;" class="cta">
+            <a class="btn primary" href="#services">See services</a>
+            <a class="btn ghost" href="https://www.facebook.com/profile.php?id=100063481543635" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">From foundations to finishes — we’ve got you covered.</p>
+      <div class="services-grid">
+        <div class="service"><span class="dot"></span> Tiles</div>
+        <div class="service"><span class="dot"></span> Precon walls</div>
+        <div class="service"><span class="dot"></span> Precon rooms</div>
+        <div class="service"><span class="dot"></span> Precon store rooms</div>
+        <div class="service"><span class="dot"></span> Palisades</div>
+        <div class="service"><span class="dot"></span> Gates</div>
+        <div class="service"><span class="dot"></span> Weaving</div>
+        <div class="service"><span class="dot"></span> Gate motors</div>
+        <div class="service"><span class="dot"></span> Garage doors</div>
+        <div class="service"><span class="dot"></span> Paint</div>
+        <div class="service"><span class="dot"></span> Nutec homes</div>
+        <div class="service"><span class="dot"></span> Plastering</div>
+        <div class="service"><span class="dot"></span> Brick lay</div>
+        <div class="service"><span class="dot"></span> Roof seal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get a Free Quote</h2>
+      <p class="section-sub">Tell us about your project and we’ll get back to you.</p>
+      <div class="contact-layout">
+        <div class="card">
+          <h3 style="margin-top:0;">Contact details</h3>
+          <ul class="info-list">
+            <li><strong>Phone:</strong> <a href="tel:+27810887862">081 088 7862</a></li>
+            <li><strong>Email:</strong> <a href="mailto:adsteenberg@gmail.com">adsteenberg@gmail.com</a></li>
+            <li><strong>Service area:</strong> Within 300km of Welkom, Free State</li>
+            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100063481543635" target="_blank" rel="noopener">Visit page</a></li>
+          </ul>
+          <p class="small">Prefer WhatsApp or a call? Tap the phone number above.</p>
+        </div>
+        <form action="https://formspree.io/f/xzzakekv" method="POST" class="form card">
+          <div class="row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="e.g. Thabo M." required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="081 000 0000" />
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option value="General enquiry">General enquiry</option>
+                <option>Tiles</option>
+                <option>Precon wall / room / store</option>
+                <option>Palisades / Gates</option>
+                <option>Gate motors / Garage doors</option>
+                <option>Paint</option>
+                <option>Nutec homes</option>
+                <option>Plastering / Brick lay</option>
+                <option>Roof seal</option>
+              </select>
+            </div>
+          </div>
+          <label for="message">Project details</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your project (size, location, timeline)…" required></textarea>
+
+          <!-- Honeypot field (spam protection) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <!-- Optional: custom subject for the email you receive -->
+          <input type="hidden" name="_subject" value="New quote request from AJ Construction website" />
+
+          <button class="btn primary" type="submit">Send request</button>
+          <p class="small">By sending, you agree to be contacted about your enquiry.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fwrap">
+      <div>© <span id="year"></span> AJ Construction. All rights reserved.</div>
+      <div>Built for clients within 300km of Welkom, Free State.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
